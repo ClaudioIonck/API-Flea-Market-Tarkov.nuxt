@@ -4,7 +4,7 @@
       <h1>Flea market</h1>
       <label for="item-name"></label><input type="text" id="item-name" placeholder="Digite o nome do item">
       <button id="search-button" @click="getItemDetails">Buscar</button>
-      <div id="item-details"></div>
+      <div id="item-details" class="scrollable"></div>
     </div>
   </div>
 </template>
@@ -82,6 +82,9 @@ body {
   padding: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   text-align: center;
+  width: 80%;
+  max-height: 90vh; /* Define a altura máxima */
+  overflow-y: auto; /* Adiciona barra de rolagem vertical se necessário */
 }
 
 input, button {
@@ -104,5 +107,15 @@ button:hover {
 #item-details {
   margin-top: 20px;
   text-align: left;
+  display: flex;
+  flex-direction: column; /* Exibir itens em coluna */
+  overflow-y: auto; /* Permitir rolagem vertical */
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  flex: 0 0 auto;
 }
 </style>
